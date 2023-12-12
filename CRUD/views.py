@@ -91,7 +91,6 @@ def createDevice(request):
 @api_view(['PUT'])
 def updateDevice(request,pk):
     data=request.data
-    print(request,request.data)
     dispositivos =  Dispositivo.objects.get(id=pk)
     if data.get('tipodispositivoId'): 
         if not TiposDispositivo.objects.filter(id=data['tipodispositivoId']).exists():
@@ -107,7 +106,6 @@ def updateDevice(request,pk):
     
 
     dispositivos.save()
-    print(dispositivos)
     serializer=DispositivoSerializer(dispositivos)
     return Response(serializer.data)
 
