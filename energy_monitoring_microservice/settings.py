@@ -44,15 +44,8 @@ INSTALLED_APPS = [
 ]
 
 SWAGGER_SETTINGS = {
-    'SECURITY_DEFINITIONS': {
-        'api_key': {
-            'type': 'apiKey',
-            'in': 'header',
-            'name': 'Authorization',
-        },
-    },
     'USE_SESSION_AUTH': False,
-    'PERSIST_AUTH': True,
+    'JSON_EDITOR': True,
 }
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

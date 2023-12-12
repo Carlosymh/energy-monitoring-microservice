@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  django:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - DJANGO_SETTINGS_MODULE=energy_monitoring_microservice.settings
+    networks:
+      - microservices_network
+
+networks:
+  microservices_network:
+    driver: bridge

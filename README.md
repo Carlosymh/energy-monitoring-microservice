@@ -2,15 +2,25 @@
 
 Sistema de monitoreo continuo para plantas de generación de energía.
 
-## Instalación
+## Requisitos
+- Python
+- Docker
+- docker-compose
 
-Asegúrate de tener Python y pip instalados. Luego, ejecuta el siguiente comando para instalar las dependencias:
+## Instrucciones
 
-```bash
-pip install -r requirements.txt
+# Construye y levanta los contenedores con docker-compose:
+docker compose up -d django
+docker compose build django
+docker compose up django
 
-Para iniciar el servidor, ejecuta: 
+# En otra terminal, ejecuta las migraciones de Django:
+docker-compose exec django python manage.py migrate
 
-python manage.py runserver
+# Accede a la documentación Swagger:
 
-Accede a la aplicación en http://localhost:8000.
+http://localhost:8000/docs/
+
+# Para detener los servicios, puedes utilizar
+
+docker composer down
